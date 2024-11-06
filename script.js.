@@ -1,0 +1,56 @@
+// Paquetes disponibles
+const packages = [
+    {
+        name: "Paquete Relajante",
+        description: "Recorre los parques más hermosos de Bogotá.",
+        price: 100000,
+        type: "relax"
+    },
+    {
+        name: "Paquete Cultural",
+        description: "Disfruta de los museos y sitios históricos.",
+        price: 120000,
+        type: "cultural"
+    },
+    {
+        name: "Paquete de Aventura",
+        description: "Vive una experiencia llena de adrenalina en las afueras de la ciudad.",
+        price: 150000,
+        type: "aventura"
+    }
+];
+
+// Función para mostrar los paquetes
+function displayPackages(filteredPackages) {
+    const packagesSection = document.getElementById("packages");
+    packagesSection.innerHTML = ''; // Limpiar los paquetes actuales
+
+    filteredPackages.forEach(package => {
+        const packageDiv = document.createElement("div");
+        packageDiv.classList.add("package");
+        packageDiv.innerHTML = `
+            <h3>${package.name}</h3>
+            <p>${package.description}</p>
+            <p>Precio: $${package.price}</p>
+        `;
+        packagesSection.appendChild(packageDiv);
+    });
+}
+
+// Cargar todos los paquetes por defecto
+displayPackages(packages);
+
+// Filtrar paquetes según el formulario
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const budget = document.getElementById("budget").value;
+    const time = document.getElementById("time").value;
+    const interests = document.getElementById("interests").value;
+
+    const filteredPackages = packages.filter(package => {
+        return package.price <= budget && package.type === interests;
+    });
+
+    displayPackages(filteredPackages);
+});
