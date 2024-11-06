@@ -1,67 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WanderWait - Planes para tu espera</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-</head>
-<body>
-    <header>
-        <h1>WanderWait</h1>
-        <p>Planifica tu tiempo mientras esperas tu vuelo con WanderWait.</p>
-        <div id="search-bar">
-            <input type="text" id="search" placeholder="Busca tus actividades o paquetes...">
-            <button id="search-btn">Buscar</button>
-        </div>
-    </header>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './styles/App.css'; // Cargar los estilos globales
+import App from './App';  // Componente principal
 
-    <section id="filter-section">
-        <h2>Filtros de búsqueda</h2>
-        <form id="filter-form">
-            <label for="time">¿Cuánto tiempo tienes?</label>
-            <select id="time">
-                <option value="1">1-2 horas</option>
-                <option value="2">2-4 horas</option>
-                <option value="3">Más de 4 horas</option>
-            </select>
-
-            <label for="budget">¿Cuál es tu presupuesto?</label>
-            <select id="budget">
-                <option value="1">Bajo</option>
-                <option value="2">Medio</option>
-                <option value="3">Alto</option>
-            </select>
-
-            <label for="date">Fecha de tu espera:</label>
-            <input type="text" id="date" placeholder="Selecciona una fecha">
-
-            <button type="submit">Aplicar filtros</button>
-        </form>
-    </section>
-
-    <section id="main-content">
-        <h2>Paquetes recomendados</h2>
-        <div id="package-list">
-            <!-- Los paquetes se mostrarán aquí dinámicamente -->
-        </div>
-    </section>
-
-    <section id="convenios">
-        <h2>Convenios y beneficios</h2>
-        <ul>
-            <li>Descuentos en hoteles locales</li>
-            <li>Entradas gratuitas a museos</li>
-            <li>Descuentos en restaurantes asociados</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 WanderWait. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root') // Contenedor para la aplicación
+);
