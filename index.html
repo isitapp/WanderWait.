@@ -11,14 +11,80 @@
         <h1>Bienvenidos a WanderWait</h1>
         <p>Planes personalizados para aprovechar el tiempo mientras esperas tu vuelo</p>
     </header>
+
     <section id="main-content">
-        <h2>¿Qué hacer mientras esperas?</h2>
-        <p>Explora opciones de actividades cercanas y crea tu plan ideal.</p>
-        <!-- Más contenido -->
+        <h2>Crea tu plan</h2>
+        <p>Cuéntanos más sobre tu tiempo disponible, tu presupuesto y tus intereses. ¡Te ayudamos a aprovechar al máximo tu espera!</p>
+        
+        <form id="plan-form">
+            <label for="time">¿Cuánto tiempo tienes disponible?</label>
+            <select id="time" name="time">
+                <option value="1">1-2 horas</option>
+                <option value="2">2-4 horas</option>
+                <option value="3">Más de 4 horas</option>
+            </select>
+
+            <label for="budget">¿Cuál es tu presupuesto aproximado?</label>
+            <select id="budget" name="budget">
+                <option value="1">Bajo (menos de $50,000 COP)</option>
+                <option value="2">Medio ($50,000 - $100,000 COP)</option>
+                <option value="3">Alto (más de $100,000 COP)</option>
+            </select>
+
+            <label for="interests">¿Qué actividades prefieres?</label>
+            <input type="text" id="interests" name="interests" placeholder="Ejemplo: museos, parques, comida local">
+
+            <button type="submit">Obtener plan</button>
+        </form>
+
+        <div id="plan-results">
+            <!-- Los resultados del plan se mostrarán aquí -->
+        </div>
+
+        <h2>Nuestros Paquetes</h2>
+        <div class="package">
+            <img src="paquete1.jpg" alt="Paquete 1" class="package-image">
+            <div class="package-info">
+                <h3>Paquete Básico</h3>
+                <p>Visita de 1-2 horas, presupuesto bajo</p>
+                <p>Incluye: Museo de Oro + Parque Nacional</p>
+                <p><strong>Precio:</strong> $40,000 COP</p>
+            </div>
+        </div>
+
+        <div class="package">
+            <img src="paquete2.jpg" alt="Paquete 2" class="package-image">
+            <div class="package-info">
+                <h3>Paquete Premium</h3>
+                <p>Visita de 2-4 horas, presupuesto medio</p>
+                <p>Incluye: Museo Botero + Restaurante Local</p>
+                <p><strong>Precio:</strong> $80,000 COP</p>
+            </div>
+        </div>
+
+        <div class="package">
+            <img src="paquete3.jpg" alt="Paquete 3" class="package-image">
+            <div class="package-info">
+                <h3>Paquete VIP</h3>
+                <p>Visita de más de 4 horas, presupuesto alto</p>
+                <p>Incluye: Tour guiado por la ciudad + almuerzo gourmet</p>
+                <p><strong>Precio:</strong> $150,000 COP</p>
+            </div>
+        </div>
+
+        <h2>Convenios</h2>
+        <p>Trabajamos en conjunto con los mejores hoteles y restaurantes de la ciudad. Algunos de nuestros convenios incluyen:</p>
+        <ul>
+            <li><strong>Hotel X:</strong> 10% de descuento en hospedaje</li>
+            <li><strong>Restaurante Y:</strong> 15% de descuento en comida</li>
+            <li><strong>Parque Z:</strong> Entrada gratuita para nuestros usuarios</li>
+        </ul>
     </section>
+
     <footer>
         <p>&copy; 2024 WanderWait. Todos los derechos reservados.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
