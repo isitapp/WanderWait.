@@ -1,0 +1,36 @@
+/* Estilos básicos */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Blanco */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Color de texto oscuro */
+}
+
+header {
+    background-color: #87CEEB; /* Azul cielo */
+    color: #fff; /* Blanco */
+    text-align: center;
+    padding: 30px;
+}
+
+#main-content {
+    padding: 20px;
+    background-color: #ffffff; /* Blanco */
+    color: #333; /* Color de texto oscuro */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFD700; /* Dorado */
+    color: white;
+}
+
+h1, h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.2em;
+}
