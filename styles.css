@@ -20,6 +20,32 @@ header {
     color: #333; /* Color de texto oscuro */
 }
 
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select, input, button {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #FFD700; /* Dorado */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f1c40f; /* Amarillo más oscuro como hover */
+}
+
 footer {
     text-align: center;
     padding: 20px;
@@ -27,10 +53,27 @@ footer {
     color: white;
 }
 
-h1, h2 {
-    font-size: 2em;
+/* Estilos para los paquetes */
+.package {
+    display: flex;
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
-p {
-    font-size: 1.2em;
+.package-image {
+    width: 200px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.package-info h3 {
+    color: #333;
+}
+
+.package-info p {
+    margin: 5px 0;
 }
