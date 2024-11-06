@@ -1,38 +1,78 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('plan-form');
-    const planResults = document.getElementById('plan-results');
+    // Inicializar el selector de fechas
+    flatpickr("#date", {
+        dateFormat: "Y-m-d"
+    });
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+    const packages = [
+        {
+            name: "Paquete Básico",
+            description: "Visita de 1-2 horas, presupuesto bajo.",
+            price: "40,000 COP",
+            image: "paquete1.jpg",
+            activities: "Museo de Oro + Parque Nacional"
+        },
+        {
+            name: "Paquete Premium",
+            description: "Visita de 2-4 horas, presupuesto medio.",
+            price: "80,000 COP",
+            image: "paquete2.jpg",
+            activities: "Museo Botero + Restaurante Local"
+        },
+        {
+            name: "Paquete VIP",
+            description: "Visita de más de 4 horas, presupuesto alto.",
+            price: "150,000 COP",
+            image: "paquete3.jpg",
+            activities: "Tour guiado por la ciudad + almuerzo gourmet"
+        }
+    ];
+
+    const packageList = document.getElementById('package-list');
+
+    function displayPackages() {
+        packageList.innerHTML = '';
+        packages.forEach(packageInfo => {
+            const packageElement = document.createElement('div');
+            packageElement.classList.add('package');
+            packageElement.innerHTML = `
+                <img src="${packageInfo.image}" alt="${packageInfo.name}">
+                <div class="package-info">
+                    <h3>${packageInfo.name}</h3>
+                    <p>${packageInfo.description}</p>
+                    <p><strong>Actividades:</strong> ${packageInfo.activities}</p>
+                    <p><strong>Precio:</strong> ${packageInfo.price}</p>
+                </div>
+            `;
+            packageList.appendChild(packageElement);
+        });
+    }
+
+    displayPackages(); // Llamamos a la función para mostrar los paquetes al cargar la página.
+
+    // Filtrar paquetes según los filtros
+    const filterForm = document.getElementById('filter-form');
+    filterForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
         const time = document.getElementById('time').value;
         const budget = document.getElementById('budget').value;
-        const interests = document.getElementById('interests').value;
+        
+        const filteredPackages = packages.filter(packageInfo => {
+            if (time === '1' && packageInfo.description.includes('1-2 horas')) return true;
+            if (time === '2' && packageInfo.description.includes('2-4 horas')) return true;
+            if (time === '3' && packageInfo.description.includes('más de 4 horas')) return true;
+            return false;
+        });
 
-        let planMessage = "Aquí está tu plan basado en tus respuestas:<br>";
-
-        // Personaliza el plan dependiendo del tiempo, presupuesto e intereses
-        if (time === '1') {
-            planMessage += "Tienes entre 1 y 2 horas. Te recomendamos explorar un museo cercano o un parque.<br>";
-        } else if (time === '2') {
-            planMessage += "Tienes entre 2 y 4 horas. Te sugerimos una caminata por la ciudad o disfrutar de una experiencia gastronómica.<br>";
-        } else {
-            planMessage += "Tienes más de 4 horas. Puedes aprovechar para realizar un tour más largo o una actividad cultural en profundidad.<br>";
-        }
-
-        if (budget === '1') {
-            planMessage += "Tu presupuesto es bajo, por lo que te recomendamos actividades gratuitas o de bajo costo.<br>";
-        } else if (budget === '2') {
-            planMessage += "Tu presupuesto es medio, así que puedes acceder a tours o actividades interesantes a precios razonables.<br>";
-        } else {
-            planMessage += "Tu presupuesto es alto, ¡así que puedes elegir experiencias premium o más exclusivas!<br>";
-        }
-
-        if (interests) {
-            planMessage += Has mencionado que te interesan: ${interests}. ¡Aquí tienes algunas opciones para ti!<br>;
-        }
-
-        // Mostrar los resultados en la página
-        planResults.innerHTML = planMessage;
-    });
-});
+        packageList.innerHTML = '';
+        filteredPackages.forEach(packageInfo => {
+            const packageElement = document.createElement('div');
+            packageElement.classList.add('package');
+            packageElement.innerHTML = `
+                <img src="${packageInfo.image}" alt="${packageInfo.name}">
+                <div class="package-info">
+                    <h3>${packageInfo.name}</h3>
+                    <p>${packageInfo.description}</p>
+                    <p><strong>Actividades:</strong> ${packageInfo.activities}</p>
+                    <p><strong>Precio:</strong> ${packageInfo.price}</p>
